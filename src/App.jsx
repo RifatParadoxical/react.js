@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 
 const App = () => {
-  
-  function FAQ({question , answer}) {
-    const  [move, setMove] = useState(false)
-    function toggleAction() {
-      setMove(!move)
-    }
-    return(
-      <div>
-      <button onClick={toggleAction}>{question}</button>
-      {move && <p>{answer}</p>}
-      </div>
-    )
-  }
+const [name, setName] = useState("")
+const [mail, setMail] = useState("")
+function handleSubmit(e) {
+  e.preventDefault();
+  console.log("Submitted:", {name, mail})
+  setName("")
+  setMail("")
+}
   return (
-      <div>
-      <FAQ question={"What is React?"} answer={"React is a JavaScript library for building UI."}></FAQ>
-      <FAQ question={"What is JSX?"} answer={"JSX is a syntax extension for JavaScript."}></FAQ>
-      <FAQ question={"Why use React?"} answer={"React makes UI development efficient and reusable."}></FAQ>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" placeholder='Enter Name' value={name} onChange={(e)=>{setName(e.target.value)}} />
+        <input type="email" placeholder='Enter Value' value={mail} onChange={(e)=>{setMail(e.target.value)}} />
+        <button type='submit'>Submit</button>
+      </form>
     </div>
   )
 }
