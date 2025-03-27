@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState , useEffect } from 'react'
 import ParentComponent from "./components/ParentComponent"
 
 const App = () => {
@@ -9,14 +9,17 @@ const [blog, setBlog] = useState([
   {writter: "Ali", publisher : "Allama Iqbal", region: "Pakistan", topic: "Secularism", key: 4},
   {writter: "sarukh", publisher : "Maliha", region: "Srilanka", topic: "Activism", key: 5}
 ])
-function dltblog(key) {
-  const newBlog = blog.filter((e)=>(e.key !== key))
+function dlt(key) {
+  const newBlog = blog.filter( e => e.key !== key)
   setBlog(newBlog)
 }
+useEffect(()=>{
+  alert("UseEffect Done")
+}, [])
   return (
     <div>
-      <ParentComponent  blog={blog} title={"All Blogs"} dlt={dltblog} />
-      <ParentComponent  blog={blog.filter((e)=> ( e.topic === "Religion"))} title={"Religious Blogs"}/>
+      <ParentComponent  blog={blog} title={"All Blogs"} dlt={dlt} />
+      <ParentComponent  blog={blog.filter((e)=> ( e.topic === "Religion"))} title={"Religious Blogs"} />
     </div>
   )
 }

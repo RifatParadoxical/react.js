@@ -1,7 +1,7 @@
-const ParentComponent = (props) => {
-    const blog = props.blog;
-    const title = props.title;
-    const dlt = props.dlt;
+const ParentComponent = ({blog, title, dlt}) => {
+    // const blog = props.blog;
+    // const title = props.title;
+    // const dlt = props.dlt;
   return (
     <div>
         <h1>{ title }</h1>
