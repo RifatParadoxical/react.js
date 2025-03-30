@@ -1,0 +1,22 @@
+{
+    "blogs":[
+        {"writter": "Rifat",
+         "publisher" : "Arif Azad",
+         "region": "Bangladesh", 
+         "topic": "Religion",
+          "key": 1
+        },
+        {"writter": "Labib",
+         "publisher" : "Reimagine",
+         "region": "India", 
+         "topic": "Statistics", 
+         "key": 2
+         },
+         {"writter": "Ali", 
+         "publisher" : "Allama Iqbal", 
+         "region": "Pakistan", 
+         "topic": "Secularism", 
+         "key": 4
+        }
+    ]
+}

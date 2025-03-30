@@ -1,26 +1,21 @@
-import { useState , useEffect } from 'react'
+import {  Routes, Route } from 'react-router-dom'
 import ParentComponent from "./components/ParentComponent"
+import NewBlog from './components/NewBlog'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import BlogDetails from './pages/BlogDetails'
 
 const App = () => {
-const [blog, setBlog] = useState([
-  {writter: "Rifat", publisher : "Arif Azad", region: "Bangladesh", topic: "Religion", key: 1},
-  {writter: "Labib", publisher : "Reimagine", region: "India", topic: "Statistics", key: 2},
-  {writter: "Abiran", publisher : "Chingala", region: "Nepal", topic: "Religion", key: 3},
-  {writter: "Ali", publisher : "Allama Iqbal", region: "Pakistan", topic: "Secularism", key: 4},
-  {writter: "sarukh", publisher : "Maliha", region: "Srilanka", topic: "Activism", key: 5}
-])
-function dlt(key) {
-  const newBlog = blog.filter( e => e.key !== key)
-  setBlog(newBlog)
-}
-useEffect(()=>{
-  alert("UseEffect Done")
-}, [])
+
   return (
     <div>
-      <ParentComponent  blog={blog} title={"All Blogs"} dlt={dlt} />
-      <ParentComponent  blog={blog.filter((e)=> ( e.topic === "Religion"))} title={"Religious Blogs"} />
-    </div>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/newBlog' element={<NewBlog/>} />
+        <Route path='/blogDetails/:id' element={<BlogDetails />} />
+      </Routes>
+     </div>
   )
 }
 
